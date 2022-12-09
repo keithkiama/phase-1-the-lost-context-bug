@@ -10,3 +10,16 @@ const messageConfig = {
       "Loki"
   ]
 };
+
+// console.log(messageConfig.closing.Thor); //=> "Admiration, respect, and love"
+const printCard = function () {
+  console.log(this.frontContent);
+  console.log(this.insideContent);
+
+  this.signatories.forEach(function (signatory) {
+    const message = `${this.closing[signatory]}, ${signatory}`;
+    console.log(message);
+  }, this);
+};
+
+printCard.call(messageConfig);
